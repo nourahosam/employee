@@ -18,9 +18,9 @@ public class EmployeeTypes {
     @Column(name = "type")
     private String type;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "parent_id")
-    private EmployeeTypes parent;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "parent_id")
+//    private EmployeeTypes parent;
 
 //    @OneToMany(fetch = FetchType.LAZY,mappedBy = "parent")
 //    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

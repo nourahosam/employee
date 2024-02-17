@@ -22,8 +22,6 @@ public class EmployeeTypeApi {
     @PostMapping
     public ResponseEntity<Object> create(@RequestBody EmployeeTypes request){
         EmployeeTypes responseEmp = employeeTypeService.create(request);
-//        Employee response = new Employee();
-//        modelMapper.map(responseEmp, response);
         return ResponseEntity.ok(responseEmp);
 
     }
