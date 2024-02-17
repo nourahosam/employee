@@ -4,6 +4,7 @@ import construction.erp.employee.DAO.Employee;
 import construction.erp.employee.service.EmployeeService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,9 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/employee")
 public class EmployeeApi {
+
+    @Autowired
+    DiscoveryClient discoveryClient;
 
     @Autowired
     EmployeeService employeeService;
@@ -30,6 +34,7 @@ public class EmployeeApi {
 
     @GetMapping
     public ResponseEntity<Object> getAll(){
+
         List<Employee> employees = employeeService.getAll();
         return ResponseEntity.ok(employees);
     }
