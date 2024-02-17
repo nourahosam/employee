@@ -1,7 +1,7 @@
 package construction.erp.employee.controller;
 
-import construction.erp.employee.DAO.Employee;
-import construction.erp.employee.service.EmployeeService;
+import construction.erp.employee.DAO.EmployeeTypes;
+import construction.erp.employee.service.EmployeeTypeService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,18 +11,17 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping("/")
-public class EmployeeApi {
-
+@RequestMapping("/employeeType")
+public class EmployeeTypeApi {
 
     @Autowired
-    EmployeeService employeeService;
+    EmployeeTypeService employeeTypeService;
 
     ModelMapper modelMapper = new ModelMapper();
 
     @PostMapping
-    public ResponseEntity<Object> create(@RequestBody Employee request){
-        Employee responseEmp = employeeService.create(request);
+    public ResponseEntity<Object> create(@RequestBody EmployeeTypes request){
+        EmployeeTypes responseEmp = employeeTypeService.create(request);
 //        Employee response = new Employee();
 //        modelMapper.map(responseEmp, response);
         return ResponseEntity.ok(responseEmp);
@@ -32,13 +31,13 @@ public class EmployeeApi {
     @GetMapping
     public ResponseEntity<Object> getAll(){
 
-        List<Employee> employees = employeeService.getAll();
+        List<EmployeeTypes> employees = employeeTypeService.getAll();
         return ResponseEntity.ok(employees);
     }
 
     @GetMapping("/getById")
     public ResponseEntity<Object> getById(@PathVariable Long id){
-        Employee employee = employeeService.getById(id);
+        EmployeeTypes employee = employeeTypeService.getById(id);
         return ResponseEntity.ok(employee);
     }
 }
