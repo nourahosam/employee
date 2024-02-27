@@ -33,7 +33,7 @@ public class EmployeeTypeApi {
         return ResponseEntity.ok(employees);
     }
 
-    @GetMapping("/getById")
+    @GetMapping("/getById/{id}")
     public ResponseEntity<Object> getById(@PathVariable Long id){
         EmployeeTypes employee = employeeTypeService.getById(id);
         return ResponseEntity.ok(employee);
