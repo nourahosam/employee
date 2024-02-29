@@ -25,6 +25,6 @@ public class EmployeeTypeServiceImpl implements EmployeeTypeService {
 
     @Override
     public EmployeeTypes getById(Long id){
-        return employeeTypeRepository.getReferenceById(id);
+        return employeeTypeRepository.findById(id).orElseThrow();
     }
 }
