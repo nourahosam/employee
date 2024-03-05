@@ -15,6 +15,8 @@ public class EmployeeTypeServiceImpl implements EmployeeTypeService {
 
     @Override
     public EmployeeTypes create(EmployeeTypes request){
+
+        System.out.println("request " + request.toString());
         return employeeTypeRepository.save(request);
     }
 
@@ -26,5 +28,11 @@ public class EmployeeTypeServiceImpl implements EmployeeTypeService {
     @Override
     public EmployeeTypes getById(Long id){
         return employeeTypeRepository.findById(id).orElseThrow();
+    }
+
+    @Override
+    public List<EmployeeTypes> getChildren(Long id){
+        // gett all employee types whos parent is id
+        return employeeTypeRepository.findEmployeeTypeByParent(id);
     }
 }

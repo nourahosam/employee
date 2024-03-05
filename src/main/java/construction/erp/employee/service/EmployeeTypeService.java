@@ -9,4 +9,5 @@ public interface EmployeeTypeService {
     public EmployeeTypes create(EmployeeTypes request);
     public List<EmployeeTypes> getAll();
     public EmployeeTypes getById(Long id);
+    public List<EmployeeTypes> getChildren(Long id);
 }

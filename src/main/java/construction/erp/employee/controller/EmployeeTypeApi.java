@@ -38,4 +38,10 @@ public class EmployeeTypeApi {
         EmployeeTypes employee = employeeTypeService.getById(id);
         return ResponseEntity.ok(employee);
     }
+
+    @GetMapping("/getByParent/{id}")
+    public ResponseEntity<Object> getByParent(@PathVariable(value = "id") Long id){
+        List<EmployeeTypes> employeeTypesList = employeeTypeService.getChildren(id);
+        return ResponseEntity.ok(employeeTypesList);
+    }
 }

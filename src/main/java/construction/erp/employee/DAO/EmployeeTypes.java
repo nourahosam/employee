@@ -26,7 +26,7 @@ public class EmployeeTypes {
 //    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 //    private Set<EmployeeTypes> children;
 
-    @Column(name = "parent_id",insertable=false, updatable=false)
+    @Column(name = "parent_id")
     private Long parentId;
 
 }
